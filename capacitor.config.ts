@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
-  appName: 'react-vite-capacitor',
+  appId: 'com.frc5431.scouting',
+  appName: 'Scouting App',
   webDir: 'dist',
   bundledWebRuntime: false
 };
