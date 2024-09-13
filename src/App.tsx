@@ -7,14 +7,14 @@ import Mainpage from './pages/Mainpage';
 function App() {
   
   const [currentPage, setPage] = useState("mainpage");
-
+  const [mainpageData, setMainpageData] = useState([]);
   return (
     <>
     
       {currentPage == "mainpage" && (
 
         <>
-          <Mainpage></Mainpage>
+          <Mainpage mainpageData={mainpageData}></Mainpage>
         </>
       )}
     
