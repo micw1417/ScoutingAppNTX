@@ -1,31 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
 export interface mainpageProps {
-  mainpageData: any[];
+  setMainPageData: React.Dispatch<React.SetStateAction<{[key: string]: any}>>;
 }
 
-const Mainpage: React.FC<mainpageProps> = ({mainpageData}: mainpageProps) => {
+const Mainpage: React.FC<mainpageProps> = ({setMainPageData}: mainpageProps) => {
   const [matchID, setMatchID] = useState('')
-  const [thing, setThing] = useState('')
-  const [data, setData] = useState<any>(mainpageData)
+  const [scouterName, setScouterName] = useState('')
   const [sumbitted, setSubmitted] = useState(false);
-  function submit() {
-    setData({matchID, thing});
-    setSubmitted(true);
-  }
+
+  useEffect(() => {
+    setMainPageData(oldData => ({...oldData, matchID}))
+  }, [matchID])
+
+  useEffect(() => {
+    setMainPageData(oldData => ({...oldData, matchID}))
+  }, [scouterName])
+  
 
   return (
     <>
-      <h1>Scouting App!!</h1>
-      <input placeholder="matchID" value={matchID} onChange={e => setMatchID(e.target.value)}/>
+      <form>
+        <ul>
+          <li>
+            <label>Scouter Name: </label>
+            <input name="Scouter Name" value={scouterName} onChange={e => setScouterName(e.target.value)}/>
+          </li>
 
-      <input placeholder="do th thing" value={thing} onChange={e => setThing(e.target.value)}/>
-
-
-      <button onClick={()=> {submit; }}>Submit</button>
-
-      {sumbitted && <QRCode value={JSON.stringify(data)}/>}
+          <li>
+            <label>Match ID: </label>
+            <input name="Match ID" value={matchID} onChange={e => setMatchID(e.target.value)}/>
+          </li>
+        </ul>
+      </form>
+      {/* <button onClick={()=> {}}>Submit</button> */}
     </>
   );
 };
