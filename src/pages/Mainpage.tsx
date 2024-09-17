@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
+import ImageClick from "../components/ImageClick";
 
 export interface mainpageProps {
   setMainPageData: React.Dispatch<React.SetStateAction<{[key: string]: any}>>;
@@ -8,8 +9,8 @@ export interface mainpageProps {
 const Mainpage: React.FC<mainpageProps> = ({setMainPageData}: mainpageProps) => {
   const [matchID, setMatchID] = useState('')
   const [scouterName, setScouterName] = useState('')
-  const [sumbitted, setSubmitted] = useState(false);
-
+  const [teamID, setTeamID] = useState('')
+  const [robotStartPos, setRobotStartingPos] = useState(['', '']);
   useEffect(() => {
     setMainPageData(oldData => ({...oldData, matchID}))
   }, [matchID])
@@ -30,11 +31,20 @@ const Mainpage: React.FC<mainpageProps> = ({setMainPageData}: mainpageProps) => 
 
           <li>
             <label>Match ID: </label>
-            <input name="Match ID" value={matchID} onChange={e => setMatchID(e.target.value)}/>
+            <input name="Match ID" value={matchID} type="number" onChange={e => setMatchID(e.target.value)}/>
+          </li>
+
+          <li>
+            <label>Team Number of who your scouting:</label>
+            <input name="Team ID" value={teamID} onChange={e => setTeamID(e.target.value)}/>
+          </li>
+
+          <li>
+            <label>Robot Starting Position (Click to show)</label>
+            <ImageClick type={"one"}></ImageClick>
           </li>
         </ul>
       </form>
-      {/* <button onClick={()=> {}}>Submit</button> */}
     </>
   );
 };
