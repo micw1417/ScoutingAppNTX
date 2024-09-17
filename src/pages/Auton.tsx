@@ -16,7 +16,6 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
 
   useEffect(() => {
     setAutonData(oldData => ({...oldData, speakerScored}))
-    console.log("SFSA")
   }, [speakerScored])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

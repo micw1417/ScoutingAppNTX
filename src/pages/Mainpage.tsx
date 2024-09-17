@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import QRCode from "react-qr-code";
 import ImageClick from "../components/ImageClick";
 
 export interface mainpageProps {
@@ -33,7 +32,7 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
     event.preventDefault(); // Prevents the default form submission
     // You can add any additional logic here if needed
   };
-  
+
   return (
     <>
       <form onSubmit={handleSubmit}>

@@ -15,7 +15,6 @@ function App() {
   const [matchData, setMatchData] = useState<{[key:string]: any}>({});
   const [endData, setEndData] = useState<{[key:string]: any}>({});
 
-
   useEffect(() => {
     // Change the CSS variable based on the current page
     switch (currentPage) {
@@ -65,13 +64,13 @@ function App() {
       {currentPage == "Match" && (
 
         <div className='mainContent'>
-          <Match setMatchData={setMatchData}></Match>
+          <Match matchData={matchData} setMatchData={setMatchData}></Match>
         </div>
       )}
       {currentPage == "End" && (
         
         <div className='mainContent'>
-          <End setEndData={setEndData}></End>
+          <End mainpageData={mainpageData} autonData={autonData} matchData={matchData} endData={endData} setEndData={setEndData}></End>
         </div>
         
       )}
@@ -82,3 +81,20 @@ function App() {
 }
 
 export default App
+
+// Failed thing that probably wont get uesd
+// export function getData(type: string) {
+//   switch (type) {
+//     case "Mainpage":
+//         return mainpageData;
+//       case "Auton":
+//         return autonData;
+//       case "Match":
+//         return matchData
+//       case "End":
+//         return endData
+//       default:
+//         console.log("SKILL ISSUE");
+//         return null;
+//   }
+// }
