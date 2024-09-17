@@ -8,11 +8,14 @@ const Match: React.FC<matchProps> = ({setMatchData}: matchProps) => {
   const [stuff, setStuff] = useState("");
 
   useEffect(() => {
+
     setMatchData(oldData => ({...oldData}))
   }, [])
 
   return (
+    
     <>
+    
       <form>
         <ul>
           <li>

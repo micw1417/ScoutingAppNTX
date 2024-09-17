@@ -27,6 +27,11 @@
   }
 }
 
+.inputbox {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
@@ -39,6 +44,10 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.mainpagebackground {
+  background-color: #689b2a;
 }
 
 #title {

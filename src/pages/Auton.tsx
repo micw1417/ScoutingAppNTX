@@ -16,8 +16,9 @@ const Auton: React.FC<autonProps> = ({setAutonData}: autonProps) => {
       <form>
         <ul>
           <li>
-            <label>Auton Stuff</label>
+            <label>Auton Stuff: </label>
             <input name="Scouter Name" value={stuff} onChange={e => setStuff(e.target.value)}/>
+            
           </li>
         </ul>
       </form>
