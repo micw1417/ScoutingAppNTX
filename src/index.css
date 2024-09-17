@@ -86,6 +86,21 @@ button:focus-visible {
   justify-items: center;
 }
 
+.counterinrow {
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.countercontainer {
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .purplebutton {
   display:flex;
   justify-content: center;
