@@ -11,9 +11,13 @@ const End: React.FC<endProps> = ({setEndData}: endProps) => {
     setEndData(oldData => ({...oldData}))
   }, [])
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevents the default form submission
+    // You can add any additional logic here if needed
+  };
+
   return (
-    <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <ul>
           <li>
             <label>End Stuff</label>
@@ -21,7 +25,6 @@ const End: React.FC<endProps> = ({setEndData}: endProps) => {
           </li>
         </ul>
       </form>
-    </>
   );
 };
 

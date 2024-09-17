@@ -12,11 +12,13 @@ const Match: React.FC<matchProps> = ({setMatchData}: matchProps) => {
     setMatchData(oldData => ({...oldData}))
   }, [])
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevents the default form submission
+    // You can add any additional logic here if needed
+  };
+
   return (
-    
-    <>
-    
-      <form>
+      <form onSubmit={handleSubmit}>
         <ul>
           <li>
             <label>Match Stuff</label>
@@ -24,7 +26,6 @@ const Match: React.FC<matchProps> = ({setMatchData}: matchProps) => {
           </li>
         </ul>
       </form>
-    </>
   );
 };
 
