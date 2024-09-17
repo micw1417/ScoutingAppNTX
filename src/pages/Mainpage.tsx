@@ -36,6 +36,13 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
   return (
     <>
       <form onSubmit={handleSubmit}>
+
+        <label>Alliance: </label>
+        <select name="alliance" id="alliance">
+          <option value="red">Red Alliance</option>
+          <option value="blue">Blue Alliance</option>
+        </select>
+
         <ul>
           <li>
             <label>Scouter Name: </label>
@@ -43,12 +50,19 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
           </li>
 
           <li>
-            <label>Match ID: </label>
+            <label>Match Number: </label>
             <input name="Match ID" value={matchID} type="number" onChange={e => setMatchID(e.target.value)}/>
           </li>
 
           <li>
-            <label>Team Number of who your scouting:</label>
+            <label>Pre load</label>
+            <input type="checkbox" id="preload" name="preload" value="preload"></input>
+            <label>No Show?</label>
+            <input type="checkbox" id="noshow" name="noshow" value="noshow"></input>
+          </li>
+
+          <li>
+            <label>Team Number:</label>
             <input name="Team ID" value={teamID} onChange={e => setTeamID(e.target.value)}/>
           </li>
 

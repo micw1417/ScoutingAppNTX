@@ -1,0 +1,55 @@
+{
+  "hash": "7a51b819",
+  "configHash": "77c992d8",
+  "lockfileHash": "38df2378",
+  "browserHash": "cc9d9aa8",
+  "optimized": {
+    "react/jsx-runtime": {
+      "src": "../../node_modules/react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "76981d04",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "266a7247",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "39f89fdc",
+      "needsInterop": true
+    },
+    "@mui/icons-material/UndoRounded": {
+      "src": "../../node_modules/@mui/icons-material/esm/UndoRounded.js",
+      "file": "@mui_icons-material_UndoRounded.js",
+      "fileHash": "4287b649",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "e340db6b",
+      "needsInterop": true
+    },
+    "react-qr-code": {
+      "src": "../../node_modules/react-qr-code/lib/index.js",
+      "file": "react-qr-code.js",
+      "fileHash": "238a6970",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-56CG6XJC": {
+      "file": "chunk-56CG6XJC.js"
+    },
+    "chunk-J4WVN2JO": {
+      "file": "chunk-J4WVN2JO.js"
+    },
+    "chunk-RGWPGAAI": {
+      "file": "chunk-RGWPGAAI.js"
+    }
+  }
+}
