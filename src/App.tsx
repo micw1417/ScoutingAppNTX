@@ -50,7 +50,7 @@ function App() {
       {currentPage == "Mainpage" && (
 
         <div className='mainContent'>
-          <Mainpage setMainPageData={setMainpageData}></Mainpage>
+          <Mainpage mainPageData={mainpageData} setMainPageData={setMainpageData}></Mainpage>
         </div>
       )}
       

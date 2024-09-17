@@ -3,22 +3,31 @@ import QRCode from "react-qr-code";
 import ImageClick from "../components/ImageClick";
 
 export interface mainpageProps {
+  mainPageData: {[key:string]: any};
   setMainPageData: React.Dispatch<React.SetStateAction<{[key: string]: any}>>;
 }
 
-const Mainpage: React.FC<mainpageProps> = ({setMainPageData}: mainpageProps) => {
-  const [matchID, setMatchID] = useState('')
-  const [scouterName, setScouterName] = useState('')
-  const [teamID, setTeamID] = useState('')
-  const [robotStartPos, setRobotStartingPos] = useState(['', '']);
+const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: mainpageProps) => {
+  const [matchID, setMatchID] = useState(mainPageData.matchID || '');
+  const [scouterName, setScouterName] = useState(mainPageData.scouterName || '')
+  const [teamID, setTeamID] = useState(mainPageData.teamID || '')
+  const [robotPos, setRobotPos] = useState<{ x: number; y: number }>(mainPageData.robotPos || [Number, Number]);
   useEffect(() => {
     setMainPageData(oldData => ({...oldData, matchID}))
   }, [matchID])
 
   useEffect(() => {
-    setMainPageData(oldData => ({...oldData, matchID}))
+    setMainPageData(oldData => ({...oldData, scouterName}))
   }, [scouterName])
+
+  useEffect(() => {
+    setMainPageData(oldData => ({...oldData, teamID}))
+  }, [teamID])
   
+  useEffect(() => {
+    setMainPageData(oldData => ({...oldData, robotPos}))
+    // console.log("CHANGED", robotPos, mainPageData.robotPos)
+  }, [robotPos])
 
   return (
     <>
@@ -41,7 +50,7 @@ const Mainpage: React.FC<mainpageProps> = ({setMainPageData}: mainpageProps) => 
 
           <li>
             <label>Robot Starting Position (Click to show)</label>
-            <ImageClick type={"one"}></ImageClick>
+            <ImageClick type={"one"} robotPos={robotPos} setRobotPos={setRobotPos}></ImageClick>
           </li>
         </ul>
       </form>
