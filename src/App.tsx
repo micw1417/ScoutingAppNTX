@@ -58,7 +58,7 @@ function App() {
       {currentPage == "Auton" && (
 
         <div className='mainContent'>
-          <Auton setAutonData={setAutonData}></Auton>
+          <Auton autonData={autonData} setAutonData={setAutonData}></Auton>
         </div>
       )}
 

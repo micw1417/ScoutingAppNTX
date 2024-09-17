@@ -4,15 +4,15 @@ export interface imageClickProps {
   type: string;
   robotPos?: { x: number; y: number };
   setRobotPos?: React.Dispatch<React.SetStateAction<{ x: number; y: number }>>;
-  pathPos?: { x: number; y: number }[];
-  setPathPos?: React.Dispatch<React.SetStateAction<{ x: number; y: number }[]>>;
+  autonPath?: { x: number; y: number }[];
+  setAutonPath?: React.Dispatch<React.SetStateAction<{ x: number; y: number }[]>>;
 }
 
-const ImageClick: React.FC<imageClickProps> = ({robotPos, pathPos, setPathPos, setRobotPos, type}: imageClickProps) => {
+const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPath, setRobotPos, type}: imageClickProps) => {
 
   // GOOFY AH CHATGPT CODE
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [dotPositions, setDotPositions] = useState<{ x: number; y: number }[]>( Array.isArray(pathPos) ? pathPos : robotPos ? [robotPos] : []);
+  const [dotPositions, setDotPositions] = useState<{ x: number; y: number }[]>( Array.isArray(autonPath) ? autonPath : robotPos ? [robotPos] : []);
   
   const draw = (image: HTMLImageElement, ctx: CanvasRenderingContext2D) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the canvas
@@ -38,11 +38,14 @@ const ImageClick: React.FC<imageClickProps> = ({robotPos, pathPos, setPathPos, s
       if (type === "one" && setRobotPos) {
         setRobotPos({x: x, y: y});
       }
+      else if (type ===  "path" && setAutonPath) {
+        setAutonPath((prevPositions) => [...prevPositions, { x, y }])
+      }
     }
   };
 
   useEffect(() => {
-    if (robotPos || pathPos) {
+    if (robotPos || autonPath) {
       const ctx = canvasRef.current?.getContext('2d');
       if (ctx) {
         const image = new Image();

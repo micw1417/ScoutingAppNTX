@@ -29,9 +29,14 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
     // console.log("CHANGED", robotPos, mainPageData.robotPos)
   }, [robotPos])
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevents the default form submission
+    // You can add any additional logic here if needed
+  };
+  
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <ul>
           <li>
             <label>Scouter Name: </label>
