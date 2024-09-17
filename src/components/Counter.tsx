@@ -10,34 +10,15 @@ interface Props {
   onMClickDown: () => void;
 }
 
-function Counter({ name, count, countM, onButtonDown, onButtonUp, onMClickDown, onMClickUp}: Props) {
+function Counter({ name, count, onButtonDown, onButtonUp}: Props) {
 
   return (
     <>
+    <div>
       <h2>{name}: {count}</h2>
-
-      <div className="counterbuttonfix">
-        <div>
-          <button onClick={onMClickUp}  className="redbutton">M</button>
+        <button onClick={onButtonUp} className="purplebutton">↑</button>
+        <button onClick={onButtonDown} className="purplebutton"><UndoRoundedIcon/></button>
         </div>
-        <div>
-          <button onClick={onButtonUp} className="purplebutton">↑</button>
-          <div className="arrowbuttonfix">  <img className="imageStyle" src={NoteImg} alt="image of frc crescendo note" /></div>
-          <button onClick={onButtonDown} className="purplebutton"><UndoRoundedIcon/></button>
-        </div>
-        <div>
-          <button className="redbutton" onClick={onMClickDown}><UndoRoundedIcon/></button>
-        </div>
-      </div>
-      <div>
-        <h2>Missing: {countM}</h2>
-      </div>
-
-      {/* <div>
-        <h2>
-          Average Time to Score: {averageTimeToScore}
-        </h2>
-      </div> */}
     </>
   )
 }
