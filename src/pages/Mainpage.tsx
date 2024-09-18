@@ -7,26 +7,16 @@ export interface mainpageProps {
 }
 
 const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: mainpageProps) => {
+  const [alliance, setAlliance] = useState(Alliance.NOT_SET)
   const [matchID, setMatchID] = useState(mainPageData.matchID || '');
   const [scouterName, setScouterName] = useState(mainPageData.scouterName || '')
   const [teamID, setTeamID] = useState(mainPageData.teamID || '')
   const [robotPos, setRobotPos] = useState<{ x: number; y: number }>(mainPageData.robotPos || [Number, Number]);
   useEffect(() => {
-    setMainPageData(oldData => ({...oldData, matchID}))
-  }, [matchID])
+    setMainPageData(oldData => ({...oldData, alliance, matchID, scouterName, teamID, robotPos}))
+    console.log(alliance)
+  }, [alliance, matchID, scouterName, teamID, robotPos])
 
-  useEffect(() => {
-    setMainPageData(oldData => ({...oldData, scouterName}))
-  }, [scouterName])
-
-  useEffect(() => {
-    setMainPageData(oldData => ({...oldData, teamID}))
-  }, [teamID])
-  
-  useEffect(() => {
-    setMainPageData(oldData => ({...oldData, robotPos}))
-    // console.log("CHANGED", robotPos, mainPageData.robotPos)
-  }, [robotPos])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevents the default form submission
@@ -38,9 +28,9 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
       <form onSubmit={handleSubmit}>
 
         <label>Alliance: </label>
-        <select name="alliance" id="alliance">
-          <option value="red">Red Alliance</option>
-          <option value="blue">Blue Alliance</option>
+        <select name="alliance" id="alliance" value={alliance}>
+          <option >Red Alliance</option>
+          <option>Blue Alliance</option>
         </select>
 
         <ul>
@@ -75,5 +65,11 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
     </>
   );
 };
+
+enum Alliance {
+  BLUE,
+  RED,
+  NOT_SET
+}
 
 export default Mainpage;

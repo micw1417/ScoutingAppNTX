@@ -9,7 +9,10 @@ export interface autonProps {
 
 const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
   const [autonPath, setAutonPath] = useState<{ x: number; y: number }[]>(autonData.autonPath || []);
-  const [speakerScored, setSpeakerScored] = useState(autonData.speakerScored || '');
+  const [speakerScored, setSpeakerScored] = useState(autonData.speakerScored || 0);
+  const [ampScored, setAmpScored] = useState(autonData.ampScored || 0);
+  const [trapScored, setTrapScored] = useState(autonData.trapScored || 0);
+
   useEffect(() => {
     setAutonData(oldData => ({...oldData, autonPath}))
   }, [autonPath])
@@ -28,24 +31,43 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
       <form onSubmit={handleSubmit}>
         <ul>
           <li>
-            <label>Speaker Scored: </label>
-            <input name="Speaker Scored" value={speakerScored} onChange={e => setSpeakerScored(e.target.value)}/>
+          <Counter
+              name='Speaker'
+              count={speakerScored}
+              onButtonUp={() => setSpeakerScored(speakerScored+1)}
+              onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
+            />
+              <Counter
+              name='Amp'
+              count={speakerScored}
+              onButtonUp={() => setSpeakerScored(speakerScored+1)}
+              onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
+            />
+              <Counter
+              name='Trap'
+              count={speakerScored}
+              onButtonUp={() => setSpeakerScored(speakerScored+1)}
+              onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
+            />
+
+            <form>
+              <p><strong> Left Starting Zone </strong></p>
+              <label> yes </label>
+              <input type = "radio" id="yes" name="leftstartingzone"></input>
+              <label> no </label>
+              <input type = "radio" id="no" name="leftstartingzone"></input>
+            </form>
           </li>
           <li>
             <label>Robot Auton Path (Click to show path): </label>
             <ImageClick type="path" autonPath={autonPath} setAutonPath={setAutonPath}></ImageClick>
           </li>
-          <Counter
-              name='Amp'
-              count={1}
-              countM={1}
-              onMClickDown={() => {}}
-              onMClickUp={() => {}}
-              onButtonDown={() => {}}
-              onButtonUp={() => {}}
-            />
-        </ul>
+          </ul>
+
       </form>
+      
+
+      
     </>
   );
 };

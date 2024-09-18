@@ -3,11 +3,9 @@ import NoteImg from "/src/assets/note.png"
 interface Props {
   name: string;
   count: number;
-  countM: number;
   onButtonUp: () => void;
   onButtonDown: () => void;
-  onMClickUp: () => void;
-  onMClickDown: () => void;
+  
 }
 
 function Counter({ name, count, onButtonDown, onButtonUp}: Props) {
