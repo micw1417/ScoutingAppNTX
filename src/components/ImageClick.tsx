@@ -72,8 +72,8 @@ const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPat
     <div>
       <canvas
         ref={canvasRef}
-        width={800}
-        height={400}
+        width={600}
+        height={300}
         style={{ border: '1px solid black', borderRadius: '40px'}}
         onClick={handleClick}
       />

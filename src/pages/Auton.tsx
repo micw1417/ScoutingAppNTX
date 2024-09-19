@@ -48,8 +48,15 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
               onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
             />
 
+            <Counter
+              name='Trap'
+              count={speakerScored}
+              onButtonUp={() => setSpeakerScored(speakerScored+1)}
+              onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
+            />
+
 `            <form>`
-              <p><strong> Left Starting Zone </strong></p>
+              <p className="mngrtghfwevbcf"><strong>Left Start Zone</strong></p>
               <label className="radio"> 
               <input type = "radio" id="yes" name="leftstartingzone"></input>
               <span>yes</span>
@@ -61,12 +68,7 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
             </form>
 
             </div>
-              <Counter
-              name='Trap'
-              count={speakerScored}
-              onButtonUp={() => setSpeakerScored(speakerScored+1)}
-              onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
-            />
+              
 
             
           </li>

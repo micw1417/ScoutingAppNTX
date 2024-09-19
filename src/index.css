@@ -96,7 +96,7 @@ button:focus-visible {
 .counterinrow {
   display:flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 2px;
   align-items: center;
 }
 
@@ -229,7 +229,7 @@ redbutton:focus-visible {
         display: block; 
         width: 10px;
         height: 10px;
-        background: #dd1515;
+        background: var(--background-color);
         position: absolute;
         border-radius: 50%;
         top: 4px;
