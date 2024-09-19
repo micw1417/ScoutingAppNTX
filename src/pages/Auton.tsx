@@ -28,21 +28,39 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
 
   return (
     <>
+    <div>
       <form onSubmit={handleSubmit}>
         <ul>
           <li>
+            <div className="firsttwoautoncounters">
           <Counter
               name='Speaker'
               count={speakerScored}
               onButtonUp={() => setSpeakerScored(speakerScored+1)}
               onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
             />
+          
+            
               <Counter
               name='Amp'
               count={speakerScored}
               onButtonUp={() => setSpeakerScored(speakerScored+1)}
               onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
             />
+
+`            <form>`
+              <p><strong> Left Starting Zone </strong></p>
+              <label className="radio"> 
+              <input type = "radio" id="yes" name="leftstartingzone"></input>
+              <span>yes</span>
+              </label>
+              <label className="radio"> 
+              <input type = "radio" id="yes" name="leftstartingzone"></input>
+              <span>no</span>
+              </label>
+            </form>
+
+            </div>
               <Counter
               name='Trap'
               count={speakerScored}
@@ -50,13 +68,7 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
               onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
             />
 
-            <form>
-              <p><strong> Left Starting Zone </strong></p>
-              <label> yes </label>
-              <input type = "radio" id="yes" name="leftstartingzone"></input>
-              <label> no </label>
-              <input type = "radio" id="no" name="leftstartingzone"></input>
-            </form>
+            
           </li>
           <li>
             <label>Robot Auton Path (Click to show path): </label>
@@ -65,7 +77,7 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
           </ul>
 
       </form>
-      
+      </div>
 
       
     </>

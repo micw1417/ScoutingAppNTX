@@ -1,3 +1,5 @@
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -18,6 +20,11 @@
 
 body {
   background-color: var(--background-color);
+}
+
+ul {
+  padding: 0;
+  margin: 0; 
 }
 
 a {
@@ -177,3 +184,66 @@ redbutton:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.firsttwoautoncounters{
+  display:flex;
+  padding:0px;
+  gap: 20px;
+}
+
+.radio{
+  align-items: center;
+  display:flex;
+  user-select:none;
+  text-align: center;
+  &+.radio{
+    margin-top: 3px;
+  }
+  span {
+    font-size: large;
+    
+  }
+
+  input{
+    display: none;
+    &+span{
+      display: inline-block; 
+      position: relative;
+      padding-left: 30px;
+      
+      &:before{
+        content: '';
+        display: block; 
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border-radius: 50%;
+        margin-right: 5px;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #ccc;
+        background: #fff;
+      }
+      &:after{
+        content: '';
+        display: block; 
+        width: 10px;
+        height: 10px;
+        background: #dd1515;
+        position: absolute;
+        border-radius: 50%;
+        top: 4px;
+        left: 3.5px;
+        opacity: 0;
+        transform: scale(0,0); 
+        transition: all .2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+      }
+    }
+    &:checked+span:after{
+      opacity: 1;
+      transform: scale(1,1);
+    }
+  }
+}
+
+

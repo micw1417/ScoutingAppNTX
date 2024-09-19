@@ -1,5 +1,4 @@
-import UndoRoundedIcon from '@mui/icons-material/UndoRounded';
-import NoteImg from "/src/assets/note.png"
+
 interface Props {
   name: string;
   count: number;
