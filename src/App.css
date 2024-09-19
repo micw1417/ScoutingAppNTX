@@ -91,6 +91,10 @@ button {
   color: #888;
 }
 
+.title {
+  padding-bottom: 20px;
+}
+
 .mainpagebackground {
   background-color: #689b2a;
 }

@@ -13,10 +13,11 @@ function Counter({ name, count, onButtonDown, onButtonUp}: Props) {
   return (
     <>
     <div className="countercontainer">
-      <h2>{name}: {count}</h2>
+      <h2 className="countertitle">{name}</h2>
       <div className="counterinrow">
-        <button onClick={onButtonUp} className="purplebutton">↑</button>
-        <button onClick={onButtonDown} className="purplebutton"><UndoRoundedIcon/></button>
+        <button onClick={onButtonUp} className="leftbutton">↑</button>
+        <h2 className="counterdisplay">{count}</h2>
+        <button onClick={onButtonDown} className="rightbutton">↓</button>
         </div>
         </div>
     </>

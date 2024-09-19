@@ -39,7 +39,7 @@ function App() {
   return (
     <div className='grid'>
       
-      <h1 id='title'>NTX Scouting App 2024</h1>
+      <h1 id='title' className="title">NTX Scouting App 2024</h1>
 
       <button className='tabs' onClick={() => {return setPage("Mainpage")}}>Main Page</button>
       <button className='tabs' onClick={() => {return setPage("Auton")}}>Auton</button>

@@ -1,10 +1,10 @@
 import {
   require_prop_types
-} from "./chunk-J4WVN2JO.js";
+} from "./chunk-E4CEWYLI.js";
 import {
   __commonJS,
   require_react
-} from "./chunk-RGWPGAAI.js";
+} from "./chunk-UPDK7Z2H.js";
 
 // node_modules/qr.js/lib/ErrorCorrectLevel.js
 var require_ErrorCorrectLevel = __commonJS({
@@ -617,10 +617,14 @@ var require_util = __commonJS({
         for (var row = 0; row < moduleCount - 1; row++) {
           for (var col = 0; col < moduleCount - 1; col++) {
             var count = 0;
-            if (qrCode.isDark(row, col)) count++;
-            if (qrCode.isDark(row + 1, col)) count++;
-            if (qrCode.isDark(row, col + 1)) count++;
-            if (qrCode.isDark(row + 1, col + 1)) count++;
+            if (qrCode.isDark(row, col))
+              count++;
+            if (qrCode.isDark(row + 1, col))
+              count++;
+            if (qrCode.isDark(row, col + 1))
+              count++;
+            if (qrCode.isDark(row + 1, col + 1))
+              count++;
             if (count == 0 || count == 4) {
               lostPoint += 3;
             }
@@ -736,9 +740,11 @@ var require_QRCode = __commonJS({
     };
     proto.setupPositionProbePattern = function(row, col) {
       for (var r = -1; r <= 7; r++) {
-        if (row + r <= -1 || this.moduleCount <= row + r) continue;
+        if (row + r <= -1 || this.moduleCount <= row + r)
+          continue;
         for (var c = -1; c <= 7; c++) {
-          if (col + c <= -1 || this.moduleCount <= col + c) continue;
+          if (col + c <= -1 || this.moduleCount <= col + c)
+            continue;
           if (0 <= r && r <= 6 && (c == 0 || c == 6) || 0 <= c && c <= 6 && (r == 0 || r == 6) || 2 <= r && r <= 4 && 2 <= c && c <= 4) {
             this.modules[row + r][col + c] = true;
           } else {
@@ -858,7 +864,8 @@ var require_QRCode = __commonJS({
       var bitIndex = 7;
       var byteIndex = 0;
       for (var col = this.moduleCount - 1; col > 0; col -= 2) {
-        if (col == 6) col--;
+        if (col == 6)
+          col--;
         while (true) {
           for (var c = 0; c < 2; c++) {
             if (this.modules[row][col - c] == null) {
@@ -1002,8 +1009,10 @@ var require_QRCodeSvg = __commonJS({
     function _objectWithoutProperties(obj, keys) {
       var target = {};
       for (var i in obj) {
-        if (keys.indexOf(i) >= 0) continue;
-        if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+        if (keys.indexOf(i) >= 0)
+          continue;
+        if (!Object.prototype.hasOwnProperty.call(obj, i))
+          continue;
         target[i] = obj[i];
       }
       return target;
@@ -1072,8 +1081,10 @@ var require_lib = __commonJS({
     function _objectWithoutProperties(obj, keys) {
       var target = {};
       for (var i in obj) {
-        if (keys.indexOf(i) >= 0) continue;
-        if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+        if (keys.indexOf(i) >= 0)
+          continue;
+        if (!Object.prototype.hasOwnProperty.call(obj, i))
+          continue;
         target[i] = obj[i];
       }
       return target;

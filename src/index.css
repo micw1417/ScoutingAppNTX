@@ -87,6 +87,7 @@ button:focus-visible {
 }
 
 .counterinrow {
+  display:flex;
   flex-direction: row;
   gap: 10px;
   align-items: center;
@@ -101,14 +102,42 @@ button:focus-visible {
 
 }
 
-.purplebutton {
+.rightbutton {
   display:flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
+  width: 40px;
   height: 40px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
+.leftbutton {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.countertitle {
+  margin-bottom: -20px;
+}
+
+.counterdisplay {
+  
+  border: 2px solid black;
+  padding-left: 20px;
+  margin-left: -10px;
+  padding-right: 20px;
+  margin-right: -10px;
+  box-sizing: border-box; 
+  border-radius: 5px;
+  background-color: var(--background-color);
+  filter: brightness(1.2) contrast(120%) saturate(150%);
+}
 
 .redbutton {
   color: #ffffff;
