@@ -21,6 +21,14 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
     setAutonData(oldData => ({...oldData, speakerScored}))
   }, [speakerScored])
 
+  useEffect(() => {
+    setAutonData(oldData => ({...oldData, ampScored}))
+  }, [ampScored])
+
+  useEffect(() => {
+    setAutonData(oldData => ({...oldData, trapScored}))
+  }, [trapScored])
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevents the default form submission
     // You can add any additional logic here if needed
@@ -43,19 +51,19 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
             
               <Counter
               name='Amp'
-              count={speakerScored}
-              onButtonUp={() => setSpeakerScored(speakerScored+1)}
-              onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
+              count={ampScored}
+              onButtonUp={() => setAmpScored(ampScored+1)}
+              onButtonDown={() => {if (ampScored > 0) setAmpScored(ampScored-1)}}
             />
 
             <Counter
               name='Trap'
-              count={speakerScored}
-              onButtonUp={() => setSpeakerScored(speakerScored+1)}
-              onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
+              count={trapScored}
+              onButtonUp={() => setTrapScored(trapScored+1)}
+              onButtonDown={() => {if (trapScored > 0) setTrapScored(trapScored-1)}}
             />
 
-`            <form>`
+              <form>
               <p className="mngrtghfwevbcf"><strong>Left Start Zone</strong></p>
               <label className="radio"> 
               <input type = "radio" id="yes" name="leftstartingzone"></input>

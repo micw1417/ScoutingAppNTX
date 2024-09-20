@@ -119,6 +119,10 @@ button:focus-visible {
   border-bottom-left-radius: 0px;
 }
 
+.mngrtghfwevbcfs {
+  font-size: large;
+}
+
 .leftbutton {
   display:flex;
   justify-content: center;
@@ -144,6 +148,27 @@ button:focus-visible {
   border-radius: 5px;
   background-color: var(--background-color);
   filter: brightness(1.2) contrast(120%) saturate(150%);
+}
+
+.matchrow1 {
+  display:flex;
+  padding:0px;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.matchrow2 {
+  display:flex;
+  padding:0px;
+  gap: 0px;
+  justify-content: space-around;
+}
+
+.matchrow3 {
+  display:flex;
+  padding:0px;
+  gap: 20px;
+  justify-content: space-around;
 }
 
 .redbutton {
