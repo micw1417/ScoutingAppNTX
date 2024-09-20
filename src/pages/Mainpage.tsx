@@ -33,11 +33,11 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
 
         <div className="select-dropdown">
         <label>Alliance: </label>
-        <select name="alliance" id="alliance" value={alliance}>
-          <option >Red Alliance</option>
-          <option>Blue Alliance</option>
+        <select name="alliance" id="alliance" value={alliance} onChange={(event) => setAlliance(event.target.value as Alliance)}>
+          <option value={Alliance.RED}>Red Alliance</option>
+          <option value={Alliance.BLUE}>Blue Alliance</option>
         </select>
-
+        </div>
         <ul>
           <li>
             <div className="input-container">
@@ -53,28 +53,23 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
             </div>
           </li>
 
-          <li>
-            <label>Pre load</label>
-            <input type="checkbox" id="preload" name="preload" value="preload"></input>
-            <label>No Show?</label>
-            <input type="checkbox" id="noshow" name="noshow" value="noshow"></input>
-          </li>
+         
 
           <li>
-            <label>Team Number:</label>
-            <input name="Team ID" value={teamID} onChange={e => setTeamID(e.target.value)}/>
-            </div>
+            
+           
+            
           </li>
 
           <li>
           <div className="checkboxContainer">
             <label className="custom-checkbox">
-            <input type="checkbox"/>
+            <input type="checkbox" checked={preload} onChange={e => setPreload(e.target.checked)}/>
             <span className="checkmark"></span>
             <span className="checkboxtext">Pre load </span>
             </label>
             <label className="custom-checkbox">
-            <input type="checkbox"/>
+            <input type="checkbox" onChange={e => setNoshow(e.target.checked)}/>
             <span className="checkmark"></span>
             <span className="checkboxtext">No Show </span>
             </label>
@@ -85,7 +80,7 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
             <label>Robot Starting Position (Click to show)</label>
             <ImageClick type={"one"} robotPos={robotPos} setRobotPos={setRobotPos}></ImageClick>
           </li>
-        </ul>
+     </ul>
       </form>
     </>
   );
