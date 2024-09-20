@@ -417,12 +417,36 @@ redbutton:focus-visible {
 }
 
 .notesbox {
-  position: absolute;
-  top: 0.1;
-  right: 0.5;
+  position: fixed;
+  top: 0;
+  right: 50%;
   z-index:100;
   width: 50vw;
   height: 70vh;
-  display: flex;
-  overflow-y:scroll;
+  border-radius: 40px;
+  font-size: large;
+  padding: 20px;
+  border-color: white;
+  transform: translate(50%, 15%);  
+}
+
+.exitnotesboxbutton {
+  position: fixed;
+  bottom: 0;
+  right: 25%;
+  z-index:100;
+  width: 5vw;
+  height: 7vh;
+  border-radius: 40px;
+  font-size: large;
+  padding: 20px;
+  color: rgb(255, 133, 133);
+  transform: translate(0%, -180%); 
+}
+.exitnotesboxbutton:hover {
+  border-color: transparent;
+}
+.exitnotesboxbutton:focus,
+.exitnotesboxbutton:focus-visible {
+  outline: transparent;
 }

@@ -12,7 +12,12 @@ function Notes() {
     return (
         <>
             <button onClick={toggleRevealNotes}>Notes</button>
+
+            {revealNotes && (<div>
             <textarea className="notesbox"></textarea>
+            <button onClick={toggleRevealNotes}className="exitnotesboxbutton">EXIT</button>
+            </div>
+             )}
         </>
     )
 }
