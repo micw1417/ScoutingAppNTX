@@ -27,33 +27,52 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
     <>
       <form onSubmit={handleSubmit}>
 
+        
+
+
+        <div className="select-dropdown">
         <label>Alliance: </label>
-        <select name="alliance" id="alliance" value={alliance}>
-          <option >Red Alliance</option>
-          <option>Blue Alliance</option>
-        </select>
+          <select>
+            <option value="Option 1">Red Alliance</option>
+            <option value="Option 2">Blue Alliance</option>
+          </select>
+</div>
 
         <ul>
           <li>
+            <div className="input-container">
             <label>Scouter Name: </label>
             <input name="Scouter Name" value={scouterName} onChange={e => setScouterName(e.target.value)}/>
+            </div>
           </li>
 
           <li>
+            <div className="input-container">
             <label>Match Number: </label>
             <input name="Match ID" value={matchID} type="number" onChange={e => setMatchID(e.target.value)}/>
+            </div>
           </li>
 
           <li>
-            <label>Pre load</label>
-            <input type="checkbox" id="preload" name="preload" value="preload"></input>
-            <label>No Show?</label>
-            <input type="checkbox" id="noshow" name="noshow" value="noshow"></input>
-          </li>
-
-          <li>
+            <div className="input-container">
             <label>Team Number:</label>
             <input name="Team ID" value={teamID} onChange={e => setTeamID(e.target.value)}/>
+            </div>
+          </li>
+
+          <li>
+          <div className="checkboxContainer">
+            <label className="custom-checkbox">
+            <input type="checkbox"/>
+            <span className="checkmark"></span>
+            <span className="checkboxtext">Pre load </span>
+            </label>
+            <label className="custom-checkbox">
+            <input type="checkbox"/>
+            <span className="checkmark"></span>
+            <span className="checkboxtext">No Show </span>
+            </label>
+            </div>
           </li>
 
           <li>
