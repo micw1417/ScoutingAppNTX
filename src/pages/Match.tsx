@@ -7,17 +7,16 @@ export interface matchProps {
 }
 
 const Match: React.FC<matchProps> = ({matchData, setMatchData}: matchProps) => {
-  const [stuff, setStuff] = useState(matchData.stuff || "");
   const [speakerScored, setSpeakerScored] = useState(matchData.speakerScored || 0);
-  const [speakerAmpScored, setSpeakerAmpScored] = useState(matchData.speakerScored || 0);
+  const [speakerAmpScored, setSpeakerAmpScored] = useState(matchData.speakerAmpScored || 0);
   const [ampScored, setAmpScored] = useState(matchData.ampScored || 0);
   const [trapScored, setTrapScored] = useState(matchData.trapScored || 0);
-  const [timesAmp, setTimesAmp] = useState(matchData.trapScored || 0);
-  const [shuttled, setShuttled] = useState(matchData.trapScored || 0);
+  const [timesAmp, setTimesAmp] = useState(matchData.timesAmp || 0);
+  const [shuttled, setShuttled] = useState(matchData.shuttled || 0);
 
   useEffect(() => {
-    setMatchData(oldData => ({...oldData, stuff}))
-  }, [stuff])
+    setMatchData(oldData => ({...oldData, speakerAmpScored, ampScored, speakerScored, trapScored, timesAmp, shuttled}))
+  }, [speakerAmpScored, ampScored, speakerScored, trapScored, timesAmp, shuttled])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevents the default form submission
