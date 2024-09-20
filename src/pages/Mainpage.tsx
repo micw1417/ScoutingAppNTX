@@ -7,15 +7,16 @@ export interface mainpageProps {
 }
 
 const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: mainpageProps) => {
-  const [alliance, setAlliance] = useState(Alliance.NOT_SET)
+  const [alliance, setAlliance] = useState(mainPageData.alliance || Alliance.NOT_SET)
   const [matchID, setMatchID] = useState(mainPageData.matchID || '');
   const [scouterName, setScouterName] = useState(mainPageData.scouterName || '')
   const [teamID, setTeamID] = useState(mainPageData.teamID || '')
+  const [preload, setPreload] = useState(mainPageData.preload || false)
+  const [noshow, setNoshow] = useState(mainPageData.noshow || false)
   const [robotPos, setRobotPos] = useState<{ x: number; y: number }>(mainPageData.robotPos || [Number, Number]);
   useEffect(() => {
-    setMainPageData(oldData => ({...oldData, alliance, matchID, scouterName, teamID, robotPos}))
-    console.log(alliance)
-  }, [alliance, matchID, scouterName, teamID, robotPos])
+    setMainPageData(oldData => ({...oldData, alliance, matchID, scouterName, teamID, robotPos, preload, noshow}))
+  }, [alliance, matchID, scouterName, teamID, robotPos, preload, noshow])
 
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,9 +29,10 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
       <form onSubmit={handleSubmit}>
 
         <label>Alliance: </label>
-        <select name="alliance" id="alliance" value={alliance}>
-          <option >Red Alliance</option>
-          <option>Blue Alliance</option>
+        <select name="alliance" id="alliance" value={alliance} onChange={(event) => setAlliance(event.target.value as Alliance)}>
+          <option value={Alliance.NOT_SET} disabled>Select an alliance</option>
+          <option value={Alliance.RED}>Red Alliance</option>
+          <option value={Alliance.BLUE}>Blue Alliance</option>
         </select>
 
         <ul>
@@ -46,9 +48,9 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
 
           <li>
             <label>Pre load</label>
-            <input type="checkbox" id="preload" name="preload" value="preload"></input>
+            <input type="checkbox" id="preload" name="preload" checked={preload} onChange={e => setPreload(e.target.checked)}></input>
             <label>No Show?</label>
-            <input type="checkbox" id="noshow" name="noshow" value="noshow"></input>
+            <input type="checkbox" id="noshow" name="noshow"  checked={noshow} onChange={e => setNoshow(e.target.checked)}></input>
           </li>
 
           <li>
@@ -67,9 +69,9 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
 };
 
 enum Alliance {
-  BLUE,
-  RED,
-  NOT_SET
+  BLUE="BLUE",
+  RED="RED",
+  NOT_SET="NOT_SET"
 }
 
 export default Mainpage;

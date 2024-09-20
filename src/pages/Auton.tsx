@@ -12,6 +12,7 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
   const [speakerScored, setSpeakerScored] = useState(autonData.speakerScored || 0);
   const [ampScored, setAmpScored] = useState(autonData.ampScored || 0);
   const [trapScored, setTrapScored] = useState(autonData.trapScored || 0);
+  const [leftStart, setLeftStart] = useState(autonData.leftStart || false);
 
   useEffect(() => {
     setAutonData(oldData => ({...oldData, autonPath}))
@@ -70,7 +71,7 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
               <span>yes</span>
               </label>
               <label className="radio"> 
-              <input type = "radio" id="yes" name="leftstartingzone"></input>
+              <input type = "radio" id="no" name="leftstartingzone"></input>
               <span>no</span>
               </label>
             </form>
