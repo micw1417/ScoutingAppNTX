@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
+import Notes from "../components/Notes"
 
 export interface endProps {
   endData: {[key: string]: any};
@@ -26,6 +27,7 @@ const End: React.FC<endProps> = ({endData, setEndData, mainpageData, autonData, 
   };
   return (
     <>
+      <Notes/>
       <form onSubmit={(e) => {e.preventDefault()}}>
         <ul>
           <li>

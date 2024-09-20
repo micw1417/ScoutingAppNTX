@@ -27,6 +27,12 @@ ul {
   margin: 0; 
 }
 
+textarea {
+  resize: none;
+  width: unset;
+  height: unset;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -408,4 +414,15 @@ redbutton:focus-visible {
   justify-content: center; 
   align-items: center;
   gap: 20px; 
+}
+
+.notesbox {
+  position: absolute;
+  top: 0.1;
+  right: 0.5;
+  z-index:100;
+  width: 50vw;
+  height: 70vh;
+  display: flex;
+  overflow-y:scroll;
 }

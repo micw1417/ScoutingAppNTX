@@ -28,7 +28,7 @@ function App() {
         document.documentElement.style.setProperty('--background-color', '#158487');
         break;
       case "End":
-        document.documentElement.style.setProperty('--background-color', '#8685ef');
+        document.documentElement.style.setProperty('--background-color', '#3f6d89');
         break;
       default:
         document.documentElement.style.setProperty('--background-color', '#242424');
