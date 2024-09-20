@@ -11,9 +11,9 @@ function Notes() {
 
     return (
         <>
-            <button onClick={toggleRevealNotes}>Notes</button>
+            {!revealNotes && (<button onClick={toggleRevealNotes}>Notes</button>)}
 
-            {revealNotes && (<div>
+            {revealNotes && (<div className='BOB'>
             <textarea className="notesbox"></textarea>
             <button onClick={toggleRevealNotes}className="exitnotesboxbutton">EXIT</button>
             </div>

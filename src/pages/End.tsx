@@ -21,8 +21,8 @@ const End: React.FC<endProps> = ({endData, setEndData, mainpageData, autonData, 
   }, [stuff])
 
   const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-    setAllData({...mainpageData, ...autonData, ...autonData, ...endData})
-    console.log({...mainpageData, ...autonData, ...autonData, ...endData})
+    setAllData({...mainpageData, ...autonData, ...autonData, ...endData, ...matchData})
+    console.log({...mainpageData, ...autonData, ...autonData, ...endData, ...matchData})
     setSubmitted(true);
   };
   return (
