@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Counter from '../components/Counter';
+import RadioButtons, { Option } from "../components/radioButtons/radioButtons";
 
 export interface matchProps {
   matchData: {[key: string]: any};
@@ -14,9 +15,27 @@ const Match: React.FC<matchProps> = ({matchData, setMatchData}: matchProps) => {
   const [timesAmp, setTimesAmp] = useState(matchData.timesAmp || 0);
   const [shuttled, setShuttled] = useState(matchData.shuttled || 0);
 
+  const [spotlight, setSpotlight] = useState(matchData.spotlight || '');
+  const spotlightOptions: Option = [
+    { label: 'Yes', value: 'Yes' },
+    { label: 'No', value: 'No' }
+  ];
+  const [stage, setStage] = useState(matchData.stage || '');
+  const stageOptions: Option = [
+    { label: 'Park', value: 'Park' },
+    { label: 'Onstage', value: 'Onstage' },
+    { label: 'None', value: 'None'}
+  ];
+  const [coopertition, setCoopertition] = useState(matchData.coopertition || '');
+  const coopertitionOptions: Option = [
+    { label: 'Yes', value: 'Yes' },
+    { label: 'No', value: 'No' }
+  ];
+
   useEffect(() => {
-    setMatchData(oldData => ({...oldData, speakerAmpScored, ampScored, speakerScored, trapScored, timesAmp, shuttled}))
-  }, [speakerAmpScored, ampScored, speakerScored, trapScored, timesAmp, shuttled])
+    setMatchData(oldData => ({...oldData, speakerAmpScored, ampScored, speakerScored, trapScored, timesAmp, shuttled, spotlight, stage, coopertition}))
+    console.log('stage', stage, 'coopertiiton', coopertition, 'spotlight', spotlight)
+  }, [speakerAmpScored, ampScored, speakerScored, trapScored, timesAmp, shuttled, spotlight, stage, coopertition])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevents the default form submission
@@ -68,8 +87,22 @@ const Match: React.FC<matchProps> = ({matchData, setMatchData}: matchProps) => {
             />
             </div>
             <div className="matchrow3">
-            <form>
-              <p className="mngrtghfwevbcfs"><strong>Spotlight</strong></p>
+              <RadioButtons vari={spotlight} setVari={setSpotlight} options={spotlightOptions} groupName="spotlight"></RadioButtons>
+              <RadioButtons vari={stage} setVari={setStage} options={stageOptions} groupName="stage"></RadioButtons>
+              <RadioButtons vari={coopertition} setVari={setCoopertition} options={coopertitionOptions} groupName="coopertition"></RadioButtons>
+            </div>
+
+          </li>
+        </ul>
+      </form>
+  );
+};
+
+export default Match;
+
+
+{/* <form> */}
+              {/* <p className="mngrtghfwevbcfs"><strong>Spotlight</strong></p>
               <label className="radio"> 
               <input type = "radio" id="yes" name="leftstartingzone"></input>
               <span>Yes</span>
@@ -104,13 +137,4 @@ const Match: React.FC<matchProps> = ({matchData, setMatchData}: matchProps) => {
               <input type = "radio" id="yes" name="leftstartingzone"></input>
               <span>No</span>
               </label>
-            </form>
-            </div>
-
-          </li>
-        </ul>
-      </form>
-  );
-};
-
-export default Match;
+            </form> */}

@@ -27,10 +27,6 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
   return (
     <>
       <form onSubmit={handleSubmit}>
-
-        
-
-
         <div className="select-dropdown">
         <label>Alliance: </label>
         <select name="alliance" id="alliance" value={alliance} onChange={(event) => setAlliance(event.target.value as Alliance)}>
@@ -53,7 +49,7 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
             </div>
           </li>
 
-         
+        
 
           <li>
             

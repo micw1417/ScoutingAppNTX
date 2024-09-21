@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ImageClick from "../components/ImageClick";
 import Counter from '../components/Counter';
+import RadioButtons, { Option } from "../components/radioButtons/radioButtons";
 
 export interface autonProps {
   autonData: {[key: string]: any};
@@ -12,23 +13,16 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
   const [speakerScored, setSpeakerScored] = useState(autonData.speakerScored || 0);
   const [ampScored, setAmpScored] = useState(autonData.ampScored || 0);
   const [trapScored, setTrapScored] = useState(autonData.trapScored || 0);
-  const [leftStart, setLeftStart] = useState(autonData.leftStart || false);
+  const [leftStart, setLeftStart] = useState<string>(autonData.leftStart || 'NOT_CHANGED');
 
+  const leftStartOptions: Option = [
+    { label: 'Yes', value: 'Yes' },
+    { label: 'No', value: 'No' },
+  ];
   useEffect(() => {
-    setAutonData(oldData => ({...oldData, autonPath}))
-  }, [autonPath])
+    setAutonData(oldData => ({...oldData, autonPath, speakerScored, ampScored, trapScored, leftStart}))
+  }, [autonPath , speakerScored, ampScored, trapScored, leftStart])
 
-  useEffect(() => {
-    setAutonData(oldData => ({...oldData, speakerScored}))
-  }, [speakerScored])
-
-  useEffect(() => {
-    setAutonData(oldData => ({...oldData, ampScored}))
-  }, [ampScored])
-
-  useEffect(() => {
-    setAutonData(oldData => ({...oldData, trapScored}))
-  }, [trapScored])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevents the default form submission
@@ -63,18 +57,8 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
               onButtonUp={() => setTrapScored(trapScored+1)}
               onButtonDown={() => {if (trapScored > 0) setTrapScored(trapScored-1)}}
             />
-
-              <form>
-              <p className="mngrtghfwevbcf"><strong>Left Start Zone</strong></p>
-              <label className="radio"> 
-              <input type = "radio" id="yes" name="leftstartingzone"></input>
-              <span>yes</span>
-              </label>
-              <label className="radio"> 
-              <input type = "radio" id="no" name="leftstartingzone"></input>
-              <span>no</span>
-              </label>
-            </form>
+              
+              <RadioButtons vari={leftStart} setVari={setLeftStart} options={leftStartOptions} groupName="leftStart"></RadioButtons>
 
             </div>
               

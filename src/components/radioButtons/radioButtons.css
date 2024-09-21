@@ -1,0 +1,67 @@
+/*  Claude AI code and file stucturing becuase of Claude AI and chatGPT. Am doing this to try to learn 
+     Best practice. Seems like a good idea for maintabilty. */
+.radio-group {
+  margin-bottom: 20px;
+}
+
+.radio-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.radio-label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.radio-label:hover .radio-input ~ .radio-custom {
+  background-color: #ccc;
+}
+
+.radio-label .radio-input:checked ~ .radio-custom {
+  background-color: #2196F3;
+}
+
+.radio-custom:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio-label .radio-input:checked ~ .radio-custom:after {
+  display: block;
+}
+
+.radio-label .radio-custom:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.radio-text {
+  margin-left: 10px;
+}
