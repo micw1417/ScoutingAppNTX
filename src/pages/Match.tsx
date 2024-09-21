@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Counter from '../components/Counter';
-import RadioButtons, { Option } from "../components/radioButtons/radioButtons";
+import RadioButtons, { Option } from "../components/radioButtons/RadioButtons";
 
 export interface matchProps {
   matchData: {[key: string]: any};
@@ -34,7 +34,7 @@ const Match: React.FC<matchProps> = ({matchData, setMatchData}: matchProps) => {
 
   useEffect(() => {
     setMatchData(oldData => ({...oldData, speakerAmpScored, ampScored, speakerScored, trapScored, timesAmp, shuttled, spotlight, stage, coopertition}))
-    console.log('stage', stage, 'coopertiiton', coopertition, 'spotlight', spotlight)
+    // console.log('stage', stage, 'coopertiiton', coopertition, 'spotlight', spotlight)
   }, [speakerAmpScored, ampScored, speakerScored, trapScored, timesAmp, shuttled, spotlight, stage, coopertition])
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

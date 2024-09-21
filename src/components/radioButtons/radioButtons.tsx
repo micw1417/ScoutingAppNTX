@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RadioButtons.css'; // Make sure to create this CSS file
+import './radioButtons.css'; // Make sure to create this CSS file
 
 export interface radioButtonProps {
   setVari: React.Dispatch<React.SetStateAction<string>>; // Update to string for flexibility
