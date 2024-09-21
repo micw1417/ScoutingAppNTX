@@ -48,7 +48,12 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
             <input name="Match ID" value={matchID} type="number" onChange={e => setMatchID(e.target.value)}/>
             </div>
           </li>
-
+          <li>
+          <div className="input-container">
+            <label>Team ID ur scouting </label>
+            <input id="teamID" name="TeamID" value={teamID} type="number" onChange={e => setTeamID(e.target.value)}/>
+            </div>
+          </li>
         
 
           <li>
