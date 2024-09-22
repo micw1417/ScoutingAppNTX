@@ -30,6 +30,7 @@ const Mainpage: React.FC<mainpageProps> = ({mainPageData, setMainPageData}: main
         <div className="select-dropdown">
         <label>Alliance: </label>
         <select name="alliance" id="alliance" value={alliance} onChange={(event) => setAlliance(event.target.value as Alliance)}>
+          <option value={Alliance.NOT_SET} disabled>Select an alliance</option>
           <option value={Alliance.RED}>Red Alliance</option>
           <option value={Alliance.BLUE}>Blue Alliance</option>
         </select>
