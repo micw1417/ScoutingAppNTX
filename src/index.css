@@ -331,6 +331,13 @@ redbutton:focus-visible {
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
 }
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 .input-container,
 .input-container * {
   margin: 0;
@@ -340,6 +347,8 @@ redbutton:focus-visible {
 }
 
 .input-container {
+  flex: 1; /* Allow containers to grow and shrink */
+  min-width: 320px; /* Minimum width before wrapping */
   position: relative;
   background-color: #242424;
   border-radius: 20px;
@@ -348,18 +357,18 @@ redbutton:focus-visible {
 .input-container input {
   font-size: 1rem;
   font-weight: normal;
-  width: 100%; /* Full width */
-  padding: 8px 10px; /* Adjust padding */
+  width: 100%;
+  padding: 8px 10px;
   border: none;
-  background-color: transparent; /* Transparent background */
-  color: white; /* Text color */
-  border-radius: 20px; /* Match the outer border radius */
+  background-color: transparent;
+  color: white;
+  border-radius: 20px;
   text-align: center;
 }
 
 .input-container input:focus {
-  outline: none; /* Remove outline on focus */
-  box-shadow: none; /* Remove box shadow */
+  outline: none;
+  box-shadow: none;
 }
 
 .custom-checkbox {
@@ -472,4 +481,20 @@ redbutton:focus-visible {
     font-size: 14px;
     padding: 8px 16px;
   }
+}
+
+.omgsexyrow {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.inputcolorredpointscool {
+  background-color: #ff283a;
+  border-radius: 20px;
+}
+
+.inputcolorbluepointscool {
+  background-color: #007bff;
+  border-radius: 20px;
 }
