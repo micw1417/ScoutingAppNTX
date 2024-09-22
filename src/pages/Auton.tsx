@@ -9,9 +9,9 @@ export interface autonProps {
 
 const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
   const [autonPath, setAutonPath] = useState<{ x: number; y: number }[]>(autonData.autonPath || []);
-  const [speakerScored, setSpeakerScored] = useState(autonData.speakerScored || 0);
-  const [ampScored, setAmpScored] = useState(autonData.ampScored || 0);
-  const [trapScored, setTrapScored] = useState(autonData.trapScored || 0);
+  const [autonSpeaker, setAutonSpeaker] = useState(autonData.autonSpeaker || 0);
+  const [autonAmp, setAutonAmp] = useState(autonData.autonAmp || 0);
+  const [autonTrap, setAutonTrap] = useState(autonData.autonTrap || 0);
   const [leftStart, setLeftStart] = useState<string>(autonData.leftStart || 'NOT_CHANGED');
 
   const leftStartOptions: Option = [
@@ -19,8 +19,8 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
     { label: 'No', value: 'No' },
   ];
   useEffect(() => {
-    setAutonData(oldData => ({...oldData, autonPath, speakerScored, ampScored, trapScored, leftStart}))
-  }, [autonPath , speakerScored, ampScored, trapScored, leftStart])
+    setAutonData(oldData => ({...oldData, autonPath, autonSpeaker, autonAmp, autonTrap, leftStart}))
+  }, [autonPath , autonSpeaker, autonAmp, autonTrap, leftStart])
 
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -37,24 +37,24 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
             <div className="firsttwoautoncounters">
           <Counter
               name='Speaker'
-              count={speakerScored}
-              onButtonUp={() => setSpeakerScored(speakerScored+1)}
-              onButtonDown={() => {if (speakerScored > 0) setSpeakerScored(speakerScored-1)}}
+              count={autonSpeaker}
+              onButtonUp={() => setAutonSpeaker(autonSpeaker+1)}
+              onButtonDown={() => {if (autonSpeaker > 0) setAutonSpeaker(autonSpeaker-1)}}
             />
           
             
               <Counter
               name='Amp'
-              count={ampScored}
-              onButtonUp={() => setAmpScored(ampScored+1)}
-              onButtonDown={() => {if (ampScored > 0) setAmpScored(ampScored-1)}}
+              count={autonAmp}
+              onButtonUp={() => setAutonAmp(autonAmp+1)}
+              onButtonDown={() => {if (autonAmp > 0) setAutonAmp(autonAmp-1)}}
             />
 
             <Counter
               name='Trap'
-              count={trapScored}
-              onButtonUp={() => setTrapScored(trapScored+1)}
-              onButtonDown={() => {if (trapScored > 0) setTrapScored(trapScored-1)}}
+              count={autonTrap}
+              onButtonUp={() => setAutonTrap(autonTrap+1)}
+              onButtonDown={() => {if (autonTrap > 0) setAutonTrap(autonTrap-1)}}
             />
               
               <RadioButtons vari={leftStart} setVari={setLeftStart} options={leftStartOptions} groupName="leftStart"></RadioButtons>
