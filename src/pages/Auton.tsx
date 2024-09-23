@@ -57,7 +57,7 @@ const Auton: React.FC<autonProps> = ({autonData, setAutonData}: autonProps) => {
               onButtonDown={() => {if (autonTrap > 0) setAutonTrap(autonTrap-1)}}
             />
               
-              <RadioButtons vari={leftStart} setVari={setLeftStart} options={leftStartOptions} groupName="leftStart"></RadioButtons>
+              <RadioButtons vari={leftStart} setVari={setLeftStart} options={leftStartOptions} groupName="Left Start"></RadioButtons>
 
             </div>
               

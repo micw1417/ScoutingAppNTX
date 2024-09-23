@@ -87,9 +87,9 @@ const Match: React.FC<matchProps> = ({matchData, setMatchData}: matchProps) => {
             />
             </div>
             <div className="matchrow3">
-              <RadioButtons vari={spotlight} setVari={setSpotlight} options={spotlightOptions} groupName="spotlight"></RadioButtons>
-              <RadioButtons vari={stage} setVari={setStage} options={stageOptions} groupName="stage"></RadioButtons>
-              <RadioButtons vari={coopertition} setVari={setCoopertition} options={coopertitionOptions} groupName="coopertition"></RadioButtons>
+              <RadioButtons vari={spotlight} setVari={setSpotlight} options={spotlightOptions} groupName="Spotlight"></RadioButtons>
+              <RadioButtons vari={stage} setVari={setStage} options={stageOptions} groupName="Stage"></RadioButtons>
+              <RadioButtons vari={coopertition} setVari={setCoopertition} options={coopertitionOptions} groupName="Coopertition"></RadioButtons>
             </div>
 
           </li>

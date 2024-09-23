@@ -48,6 +48,11 @@ const End: React.FC<endProps> = ({
     console.log({ ...mainpageData, ...autonData, ...autonData, ...endData, ...matchData, });
     setSubmitted(true);
   };
+
+  const hideQR = () => {
+    setSubmitted(false)
+  }
+
   return (
     <>
       <form
@@ -101,17 +106,24 @@ const End: React.FC<endProps> = ({
           </div>
           <div className="omgsexyrow">
             <li>
-              <RadioButtons vari={deactivated} setVari={setDeactivated} options={deactivatedOptions} groupName="deactivated"></RadioButtons>
+              <RadioButtons vari={deactivated} setVari={setDeactivated} options={deactivatedOptions} groupName="Deactivated"></RadioButtons>
             </li>
             <li>
-              <RadioButtons vari={playedDefense} setVari={setPlayedDefense} options={playedDefenseOptions} groupName="playedDefense"></RadioButtons>
+              <RadioButtons vari={playedDefense} setVari={setPlayedDefense} options={playedDefenseOptions} groupName="Played Defense"></RadioButtons>
             </li>
           </div>
         </ul>
         <button onClick={handleSubmit}>SUBMIT!</button>
       </form>
 
-      {submitted && <QRCode value={JSON.stringify(allData)} />}
+      {submitted && (
+        <div className="qr-code-overlay">
+          <div className="qr-code-container">
+            <QRCode value={JSON.stringify(allData)} />
+            <button className="exit-button" onClick={hideQR}>EXIT</button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
