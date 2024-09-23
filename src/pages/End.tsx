@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import Notes from "../components/Notes";
-import RadioButtons, {Option}  from "../components/radioButtons/RadioButtons";
+import RadioButtons, { Option } from "../components/radioButtons/RadioButtons";
 
 export interface endProps {
   endData: { [key: string]: any };
@@ -44,8 +44,8 @@ const End: React.FC<endProps> = ({
   }, [notes, redPoints, bluePoints, penalties, RP, playedDefense, deactivated]);
 
   const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-    setAllData({ ...mainpageData, ...autonData, ...autonData, ...endData, ...matchData,});
-    console.log({ ...mainpageData,...autonData, ...autonData, ...endData, ...matchData,});
+    setAllData({ ...mainpageData, ...autonData, ...autonData, ...endData, ...matchData, });
+    console.log({ ...mainpageData, ...autonData, ...autonData, ...endData, ...matchData, });
     setSubmitted(true);
   };
   return (
@@ -58,46 +58,54 @@ const End: React.FC<endProps> = ({
         <Notes notes={notes} setNotes={setNotes}></Notes>
         <ul>
           <div className="input-row">
-          <li>
-            <div className="input-container">
-            <div className="inputcolorredpointscool">
-              <label>Red Points</label>
-              <input name="Red Points" value={redPoints} onChange={(e) => setRedPoints(e.target.value)} type={"number"}/>
+            <li>
+              <div className="input-container">
+                <div className="inputcolorredpointscool">
+                  <div className="inputcontainerendscreenextension">
+                    <label>Red Points</label>
+                    <input name="Red Points" value={redPoints} onChange={(e) => setRedPoints(e.target.value)} type={"number"} />
+                  </div>
+                </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div className="input-container">
-              <div className="inputcolorbluepointscool">
-              <label>Blue Points</label>
-              <input name="Blue Points" value={bluePoints} onChange={(e) => setBluePoints(e.target.value)} type={"number"}/>
+            </li>
+            <li>
+              <div className="input-container">
+                <div className="inputcolorbluepointscool">
+                  <div className="inputcontainerendscreenextension">
+                    <label>Blue Points</label>
+                    <input name="Blue Points" value={bluePoints} onChange={(e) => setBluePoints(e.target.value)} type={"number"} />
+                  </div>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
           </div>
           <div className="input-row">
-          <li>
-            <div className="input-container">
-              <label>Penalties</label>
-              <input name="Penalties" value={penalties} onChange={(e) => setPenalties(e.target.value)} type={"number"}/>
-            </div>
-          </li>
-          <li>
-            <div className="input-container">
-              <div>
-              <label>RP</label>
-              <input name="RP" value={RP} onChange={(e) => setRP(e.target.value)} type={"number"}/>
+            <li>
+              <div className="input-container">
+                <div className="inputcontainerendscreenextension">
+                  <label>Penalties</label>
+                  <input name="Penalties" value={penalties} onChange={(e) => setPenalties(e.target.value)} type={"number"} />
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+            <li>
+              <div className="input-container">
+                <div>
+                  <div className="inputcontainerendscreenextension">
+                    <label>RP</label>
+                    <input name="RP" value={RP} onChange={(e) => setRP(e.target.value)} type={"number"} />
+                  </div>
+                </div>
+              </div>
+            </li>
           </div>
           <div className="omgsexyrow">
-          <li>
-          <RadioButtons vari={deactivated} setVari={setDeactivated} options={deactivatedOptions} groupName="deactivated"></RadioButtons>
-          </li>
-          <li>
-          <RadioButtons vari={playedDefense} setVari={setPlayedDefense} options={playedDefenseOptions} groupName="playedDefense"></RadioButtons>
-          </li>
+            <li>
+              <RadioButtons vari={deactivated} setVari={setDeactivated} options={deactivatedOptions} groupName="deactivated"></RadioButtons>
+            </li>
+            <li>
+              <RadioButtons vari={playedDefense} setVari={setPlayedDefense} options={playedDefenseOptions} groupName="playedDefense"></RadioButtons>
+            </li>
           </div>
         </ul>
         <button onClick={handleSubmit}>SUBMIT!</button>

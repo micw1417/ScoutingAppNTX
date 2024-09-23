@@ -348,7 +348,7 @@ redbutton:focus-visible {
 
 .input-container {
   flex: 1; /* Allow containers to grow and shrink */
-  min-width: 320px; /* Minimum width before wrapping */
+  min-width: 280px; /* Minimum width before wrapping */
   position: relative;
   background-color: #242424;
   border-radius: 20px;
@@ -376,6 +376,10 @@ redbutton:focus-visible {
   align-items: center;
   cursor: pointer;
   
+}
+
+.inputcontainerendscreenextension {
+  max-width: 280px;
 }
 
 .custom-checkbox input {
