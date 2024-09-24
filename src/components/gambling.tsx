@@ -1,4 +1,4 @@
-export async function gambling() {
+function gambling() {
     const rewards = [
         {name:"nothing", probability: 0.7},
         {name:"1+", probability:0.2},
@@ -16,6 +16,12 @@ export async function gambling() {
             return reward.name;
         }
     }
-    return console.log("error");
+    return (
+        <>
+        <p>penis</p>
+        </>
+    );
 
 }
+
+export default gambling;

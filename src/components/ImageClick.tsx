@@ -6,16 +6,15 @@ export interface imageClickProps {
   setRobotPos?: React.Dispatch<React.SetStateAction<{ x: number; y: number }>>;
   autonPath?: { x: number; y: number }[];
   setAutonPath?: React.Dispatch<React.SetStateAction<{ x: number; y: number }[]>>;
+  resetTrigger?: number;
 }
 
-const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPath, setRobotPos, type}: imageClickProps) => {
-
-  // GOOFY AH CHATGPT CODE
+const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPath, setRobotPos, type, resetTrigger}: imageClickProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [dotPositions, setDotPositions] = useState<{ x: number; y: number }[]>( Array.isArray(autonPath) ? autonPath : robotPos ? [robotPos] : []);
+  const [dotPositions, setDotPositions] = useState<{ x: number; y: number }[]>(Array.isArray(autonPath) ? autonPath : robotPos ? [robotPos] : []);
   
   const draw = (image: HTMLImageElement, ctx: CanvasRenderingContext2D) => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the canvas
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.drawImage(image, 0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.fillStyle = 'red';
     dotPositions.forEach(({ x, y }) => {
@@ -38,7 +37,7 @@ const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPat
       if (type === "one" && setRobotPos) {
         setRobotPos({x: x, y: y});
       }
-      else if (type ===  "path" && setAutonPath) {
+      else if (type === "path" && setAutonPath) {
         setAutonPath((prevPositions) => [...prevPositions, { x, y }])
       }
     }
@@ -66,7 +65,13 @@ const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPat
         draw(image, ctx);
       };
     }
-  }, [dotPositions]); // Redraw the image and dots whenever dotPositions change
+  }, [dotPositions]);
+
+  useEffect(() => {
+    if (resetTrigger !== undefined) {
+      setDotPositions([]);
+    }
+  }, [resetTrigger]);
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Counter from '../components/Counter';
-import RadioButtons, { Option } from "../components/radioButtons/RadioButtons";
+import RadioButtons, { Option } from "../components/radioButtons/radioButtons";
 
 export interface matchProps {
   matchData: {[key: string]: any};
