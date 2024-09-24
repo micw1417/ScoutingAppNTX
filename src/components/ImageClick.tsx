@@ -19,8 +19,35 @@ const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPat
     ctx.fillStyle = 'red';
     dotPositions.forEach(({ x, y }) => {
       ctx.beginPath();
-      ctx.arc(x, y, 10, 0, 2 * Math.PI);
+      ctx.arc(x, y, 8, 0, 2 * Math.PI);
       ctx.fill();
+      if (dotPositions.length > 1) {
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 2;
+        
+        for (let i = 0; i < dotPositions.length - 1; i++) {
+          const start = dotPositions[i];
+          const end = dotPositions[i + 1];
+          
+          ctx.beginPath();
+          ctx.moveTo(start.x, start.y);
+          ctx.lineTo(end.x, end.y);
+          ctx.stroke();
+          
+          const angle = Math.atan2(end.y - start.y, end.x - start.x);
+          ctx.save();
+          ctx.translate(end.x, end.y);
+          ctx.rotate(angle);
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.lineTo(-15, -7);
+          ctx.lineTo(-15, 7);
+          ctx.closePath();
+          ctx.fillStyle = 'blue';
+          ctx.fill();
+          ctx.restore();
+        }
+      }
     });
   };
 
@@ -68,10 +95,8 @@ const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPat
   }, [dotPositions]);
 
   useEffect(() => {
-    if (resetTrigger !== undefined) {
-      setDotPositions([]);
-    }
-  }, [resetTrigger]);
+    setDotPositions(autonPath ?? []);
+  }, [autonPath])
 
   return (
     <div>

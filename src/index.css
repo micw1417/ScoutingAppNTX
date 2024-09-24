@@ -543,3 +543,11 @@ redbutton:focus-visible {
   color: white;
   background-color: #ff4757;
 }
+.reset {
+  padding: 5px 10px; 
+  font-size: 16px; 
+  border-radius: 15px;
+  border: none;     
+  color: white;   
+  cursor: pointer;
+}
