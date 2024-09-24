@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ImageClick from "../components/ImageClick";
 import Counter from '../components/Counter';
-import RadioButtons, {Option} from "../components/radioButtons/radioButtons";
+import RadioButtons, {Option} from "../components/radioButtons/RadioButtons";
 
 export interface autonProps {
   autonData: {[key: string]: any};
