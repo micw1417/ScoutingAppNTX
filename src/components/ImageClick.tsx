@@ -22,7 +22,7 @@ const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPat
       ctx.arc(x, y, 8, 0, 2 * Math.PI);
       ctx.fill();
       if (dotPositions.length > 1) {
-        ctx.strokeStyle = 'blue';
+        ctx.strokeStyle = 'black';
         ctx.lineWidth = 2;
         
         for (let i = 0; i < dotPositions.length - 1; i++) {
@@ -43,7 +43,7 @@ const ImageClick: React.FC<imageClickProps> = ({robotPos, autonPath, setAutonPat
           ctx.lineTo(-15, -7);
           ctx.lineTo(-15, 7);
           ctx.closePath();
-          ctx.fillStyle = 'blue';
+          ctx.fillStyle = 'black';
           ctx.fill();
           ctx.restore();
         }
